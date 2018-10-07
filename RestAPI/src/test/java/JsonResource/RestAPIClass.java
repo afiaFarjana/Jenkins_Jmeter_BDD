@@ -11,16 +11,12 @@ public class RestAPIClass {
     @Test
     public void postTest(){
         RequestSpecification request = RestAssured.given();
-
         request.header("Content-Type", "application/json");
-
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", 2);
         jsonObject.put("title", "QA");
         jsonObject.put("author", "Abby");
-
         request.body(jsonObject.toJSONString());
-
         Response response = request.post("http://localhost:3000/profile");
         int statusCode = response.getStatusCode();
         Assert.assertEquals(201, statusCode);
@@ -29,16 +25,12 @@ public class RestAPIClass {
    @Test
     public void putTest(){
         RequestSpecification request = RestAssured.given();
-
         request.header("Content-Type", "application/json");
-
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", 2);
         jsonObject.put("title", "Engineer");
         jsonObject.put("author", "Abby");
-
         request.body(jsonObject.toJSONString());
-
         Response response = request.put("http://localhost:3000/profile");
         int statusCode = response.getStatusCode();
         Assert.assertEquals(200, statusCode);
@@ -55,14 +47,11 @@ public class RestAPIClass {
     @Test
     public void putNullTest(){
         RequestSpecification request = RestAssured.given();
-
         request.header("Content-Type", "application/json");
-
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", 23);
         jsonObject.put("title", "CEO");
         jsonObject.put("author", "Becky");
-
         request.body(jsonObject.toJSONString());
         Response response = request.put("ttp://localhost:3000/profile");
         int statusCode = response.getStatusCode();
