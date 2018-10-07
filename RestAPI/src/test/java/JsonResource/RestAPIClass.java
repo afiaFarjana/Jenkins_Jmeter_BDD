@@ -15,7 +15,7 @@ public class RestAPIClass {
         request.header("Content-Type", "application/json");
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id", 3);
+        jsonObject.put("id", 2);
         jsonObject.put("title", "QA");
         jsonObject.put("author", "Abby");
 
@@ -33,7 +33,7 @@ public class RestAPIClass {
         request.header("Content-Type", "application/json");
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("id", 3);
+        jsonObject.put("id", 2);
         jsonObject.put("title", "Engineer");
         jsonObject.put("author", "Abby");
 
@@ -47,7 +47,6 @@ public class RestAPIClass {
     @Test
     public void deleteTest(){
         RequestSpecification request = RestAssured.given();
-
         Response response = request.delete("http://localhost:3000/profile");
         int statusCode = response.getStatusCode();
         Assert.assertEquals(200, statusCode);
