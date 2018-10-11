@@ -8,8 +8,18 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>JmeterTesting</artifactId>
+    <properties>
+
+        <!--suppress UnresolvedMavenProperty -->
+        <TestCaseName>${testCaseName}</TestCaseName>
+
+        <!--suppress UnresolvedMavenProperty -->
+        <Auth>${token}</Auth>
+
+        <!--suppress UnresolvedMavenProperty -->
+        <DataFileName>${dataFileName}</DataFileName>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>ProjectForJenkins</groupId>
@@ -17,5 +27,121 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <build>
+                <plugins>
+                    <!-- Configure the maven-compiler-plugin to use JDK 1.8 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.7.0</version>
+                        <configuration>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                            <fork>true</fork>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <!-- https://github.com/Ronnie76er/jmeter-maven-plugin -->
+                        <groupId>com.lazerycode.jmeter</groupId>
+                        <artifactId>jmeter-maven-plugin</artifactId>
+                        <version>2.7.0</version>
+                        <executions>
+                            <execution>
+                                <id>jmeter-tests</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>jmeter</goal>
+                                    <goal>results</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+
+                        <dependencies>
+                            <dependency>
+                                <groupId>kg.apc</groupId>
+                                <artifactId>jmeter-plugins</artifactId>
+                                <version>1.4.0</version>
+                                <type>pom</type>
+                                <exclusions>
+                                    <exclusion>
+                                        <groupId>org.apache.thrift</groupId>
+                                        <artifactId>thrift</artifactId>
+                                    </exclusion>
+                                </exclusions>
+                            </dependency>
+                            <dependency>
+                                <groupId>kg.apc</groupId>
+                                <artifactId>jmeter-plugins-extras-libs</artifactId>
+                                <version>1.4.0</version>
+                            </dependency>
+                        </dependencies>
+                        <configuration>
+                            <!-- configure which testplans to use -->
+                            <testFilesIncluded>
+                                <includes>${TestCaseName}.jmx</includes>
+                                <!--<includes>ServiceApi.jmx</includes>-->
+                            </testFilesIncluded>
+                            <scanResultsForFailedRequests>true</scanResultsForFailedRequests>
+                            <!--Changing it to true to fail build-->
+                            <ignoreResultFailures>false</ignoreResultFailures>
+                            <reportConfig>
+                               <!-- <xsltFile>${basedir}/src/test/resources/jmeter-results-detail-report_21.xsl</xsltFile>-->
+                                <xsltFile>/Users/afia/IdeaProjects/ProjectForJenkins/JmeterTesting/src/test/resources/jmeter-results-detail-report_21.xsl</xsltFile>
+                            </reportConfig>
+                            <!-- protocol, server and port of tested webapp -->
+                            <propertiesUser>
+                                <targetResults>${basedir}/target/jmeter/report</targetResults>
+                                <Authentication>${Auth}</Authentication>
+                                <DataFile>${Data
+								FileName}</DataFile>
+                            </propertiesUser>
+
+                            <propertiesJMeter>
+                                <log_level.jmeter>DEBUG</log_level.jmeter>
+                                <!--<jmeter.save.saveservice.response_data>true</jmeter.save.saveservice.response_data>-->
+                                <jmeter.save.saveservice.url>true</jmeter.save.saveservice.url>
+                            </propertiesJMeter>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>xml-maven-plugin</artifactId>
+                        <version>1.0.1</version>
+                        <executions>
+                            <execution>
+                                <id>transform-xsl</id>
+                                <!--<phase>verify</phase>-->
+                                <goals>
+                                    <goal>transform</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <transformationSets>
+                                <transformationSet>
+                                    <dir>${basedir}/target/jmeter/results</dir>
+                                    <stylesheet>${basedir}/src/test/resources/jmeter-results-detail-report_21.xsl</stylesheet>
+                                    <outputDir>${basedir}/target/jmeter/reports</outputDir>
+                                    <fileMappers>
+                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+                                            <targetExtension>.html</targetExtension>
+                                        </fileMapper>
+                                    </fileMappers>
+                                </transformationSet>
+                            </transformationSets>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

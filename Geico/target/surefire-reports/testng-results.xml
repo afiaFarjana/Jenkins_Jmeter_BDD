@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-10-03T06:50:39Z" name="Surefire suite" finished-at="2018-10-03T06:50:56Z" duration-ms="17340">
+  <suite name="Surefire suite" duration-ms="19584" started-at="2018-10-11T22:05:41Z" finished-at="2018-10-11T22:06:01Z">
     <groups>
     </groups>
-    <test started-at="2018-10-03T06:50:39Z" name="Surefire test" finished-at="2018-10-03T06:50:56Z" duration-ms="17340">
+    <test name="Surefire test" duration-ms="19584" started-at="2018-10-11T22:05:41Z" finished-at="2018-10-11T22:06:01Z">
       <class name="home.SearchTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:home.SearchTest@36902638]" started-at="2018-10-03T06:50:39Z" name="setup" finished-at="2018-10-03T06:50:45Z" duration-ms="6151" status="PASS">
+        <test-method status="PASS" signature="setup()[pri:0, instance:home.SearchTest@2b98378d]" name="setup" is-config="true" duration-ms="7277" started-at="2018-10-11T22:05:41Z" finished-at="2018-10-11T22:05:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="init()[pri:0, instance:home.SearchTest@36902638]" started-at="2018-10-03T06:50:45Z" name="init" finished-at="2018-10-03T06:50:45Z" duration-ms="19" status="PASS">
+        <test-method status="PASS" signature="init()[pri:0, instance:home.SearchTest@2b98378d]" name="init" is-config="true" duration-ms="20" started-at="2018-10-11T22:05:49Z" finished-at="2018-10-11T22:05:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method signature="testSearchWithButton()[pri:0, instance:home.SearchTest@36902638]" started-at="2018-10-03T06:50:45Z" name="testSearchWithButton" finished-at="2018-10-03T06:50:47Z" duration-ms="2045" status="PASS">
+        <test-method status="PASS" signature="testSearchWithButton()[pri:0, instance:home.SearchTest@2b98378d]" name="testSearchWithButton" duration-ms="5483" started-at="2018-10-11T22:05:49Z" finished-at="2018-10-11T22:05:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchWithButton -->
-        <test-method is-config="true" signature="end()[pri:0, instance:home.SearchTest@36902638]" started-at="2018-10-03T06:50:47Z" name="end" finished-at="2018-10-03T06:50:47Z" duration-ms="159" status="PASS">
+        <test-method status="PASS" signature="end()[pri:0, instance:home.SearchTest@2b98378d]" name="end" is-config="true" duration-ms="162" started-at="2018-10-11T22:05:54Z" finished-at="2018-10-11T22:05:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:home.SearchTest@36902638]" started-at="2018-10-03T06:50:47Z" name="setup" finished-at="2018-10-03T06:50:54Z" duration-ms="6596" status="PASS">
+        <test-method status="PASS" signature="setup()[pri:0, instance:home.SearchTest@2b98378d]" name="setup" is-config="true" duration-ms="4498" started-at="2018-10-11T22:05:54Z" finished-at="2018-10-11T22:05:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="init()[pri:0, instance:home.SearchTest@36902638]" started-at="2018-10-03T06:50:54Z" name="init" finished-at="2018-10-03T06:50:54Z" duration-ms="0" status="PASS">
+        <test-method status="PASS" signature="init()[pri:0, instance:home.SearchTest@2b98378d]" name="init" is-config="true" duration-ms="1" started-at="2018-10-11T22:05:59Z" finished-at="2018-10-11T22:05:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method signature="testSearchWithoutButton()[pri:0, instance:home.SearchTest@36902638]" started-at="2018-10-03T06:50:54Z" name="testSearchWithoutButton" finished-at="2018-10-03T06:50:56Z" duration-ms="2191" status="PASS">
+        <test-method status="PASS" signature="testSearchWithoutButton()[pri:0, instance:home.SearchTest@2b98378d]" name="testSearchWithoutButton" duration-ms="1964" started-at="2018-10-11T22:05:59Z" finished-at="2018-10-11T22:06:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchWithoutButton -->
-        <test-method is-config="true" signature="end()[pri:0, instance:home.SearchTest@36902638]" started-at="2018-10-03T06:50:56Z" name="end" finished-at="2018-10-03T06:50:56Z" duration-ms="161" status="PASS">
+        <test-method status="PASS" signature="end()[pri:0, instance:home.SearchTest@2b98378d]" name="end" is-config="true" duration-ms="162" started-at="2018-10-11T22:06:01Z" finished-at="2018-10-11T22:06:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->

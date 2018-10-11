@@ -1,0 +1,3 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1539295565363,1910,HTTP Request,200,OK,Thread Group 1-1,text,true,,2142,169,1,1,http://info.venturepulse.org:8080/service-webapp/api/AllEmployeeResources,1910,0,166
+1539295567313,1,Debug Sampler,200,OK,Thread Group 1-1,text,true,,348,0,1,1,null,0,0,0
