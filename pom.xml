@@ -12,6 +12,7 @@
         <module>Geico</module>
         <module>Generic</module>
         <module>RestAPI</module>
+        <module>JmeterTesting</module>
     </modules>
     <dependencyManagement>
         <dependencies>

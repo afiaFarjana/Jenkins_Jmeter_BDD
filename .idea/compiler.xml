@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Geico" />
         <module name="Generic" />
+        <module name="JmeterTesting" />
         <module name="RestAPI" />
       </profile>
     </annotationProcessing>
